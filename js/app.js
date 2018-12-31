@@ -1,6 +1,4 @@
-// Initial array of topics
-var topics = ["Cats", "dogs", "mice", "fish"];
-
+var topics = [];
 
 // Event listener for all button elements
 function alertTopicName() {
@@ -30,11 +28,23 @@ function alertTopicName() {
             // Storing the result item's rating
             var rating = results[i].rating;
 
+            // Storing the result item's rating
+            var title = results[i].title;
+
             // Creating a paragraph tag with the result item's rating
             var p = $("<p>").text("Rating: " + rating);
 
+            // Creating a paragraph tag with the result item's rating
+            var h = $("<h3>").text(title);
+
             // Creating an image tag
             var gifImage = $("<img>");
+
+            // Creating an download button
+            var downLoad = $("<a href=" + results[i].images.fixed_width.url + " download=''> Download</a>");
+
+            var downLoad = $("<form method='get' action=" + results[i].images.fixed_width.url + "><button type='submit'>Download!</button></form>");
+
 
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
@@ -45,8 +55,10 @@ function alertTopicName() {
             gifImage.addClass("gif");
 
             // Appending the paragraph and gifImage we created to the "gifDiv" div we created
+            gifDiv.append(h);
             gifDiv.append(p);
             gifDiv.append(gifImage);
+            gifDiv.append(downLoad);
 
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
             $("#gifs-appear-here").prepend(gifDiv);
@@ -78,6 +90,10 @@ function renderButtons() {
   // Deleting the topics prior to adding new topics
   // (this is necessary otherwise we will have repeat buttons)
   $("#buttons-view").empty();
+  
+    // Initial array of topics
+    topics = ["Cats", "dogs", "mice", "fish"];
+    localStorage.setItem("topics", JSON.stringify(topics));
 
   // Looping through the array of topics
   for (var i = 0; i < topics.length; i++) {
@@ -106,6 +122,10 @@ $("#add-topic").on("click", function(event) {
   // Adding the topic from the textbox to our array
   topics.push(topic);
 
+  localStorage.setItem("topics", JSON.stringify(topics));
+
+
+  $('#topic-input').val('');
   // Calling renderButtons which handles the processing of our topic array
   renderButtons();
 

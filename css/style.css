@@ -17,3 +17,11 @@
 #gifs-appear-here img {
     z-index: 999;
 }
+
+h3 {
+    max-width: 190px;
+}
+
+button {
+    margin-right: 5px;
+}
