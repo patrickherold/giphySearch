@@ -1,0 +1,19 @@
+.gif-section {
+    margin-top: 20px;
+    border: 1px solid #333;
+}
+
+.giphy {
+    width: 19%;
+    float: left;
+    margin-right: 5px;
+}
+
+.card {
+    float: left;
+    margin: 5px;
+}
+
+#gifs-appear-here img {
+    z-index: 999;
+}

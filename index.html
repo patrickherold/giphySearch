@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GiphySearch</title>
+    <!-- Bootstrap CSS CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Main Bootstrap Search -->
+    <div class="container">
+        <h1>GiphY Search</h1>
+
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
+
+        <form id="movie-form">
+            <label for="topic-input">Add a topic, dude!</label>
+            <input type="text" id="topic-input"><br>
+
+            <!-- Button triggers new movie to be added -->
+            <input id="add-topic" type="submit" value="Add a topic, dude!">
+        </form>
+        <div class="row">
+            <div id="gifs-appear-here"></div>
+        </div>
+    </div>    
+
+</body>
+  <!-- jQuery JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Code to the JavaScript File -->
+  <script src="js/app.js"></script>
+
+</html>
