@@ -158,8 +158,12 @@ $("#add-topic").on("click", function(event) {
 });
 
 function clearLocal() {
-    localStorage.clear();
-}
+    event.preventDefault();
+    localStorage.setItem('topics', '');
+    $('#topic-input').val('');
+    $("#gifs-appear-here").clear();
+    renderButtons();
+};
 
 $(document).on("click", ".topic", alertTopicName);
 
