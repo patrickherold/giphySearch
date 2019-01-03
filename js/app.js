@@ -1,4 +1,13 @@
-var topics = [];
+var topics = ["Cats", "dogs", "mice", "fish"];
+
+// Get the existing data
+if (localStorage.getItem("topics") !== null) {
+    var existing = localStorage.getItem("topics").split(',');
+}
+else {
+    var existing = [];
+}
+
 
 // Event listener for all button elements
 function alertTopicName() {
@@ -26,24 +35,27 @@ function alertTopicName() {
             var gifDiv = $("<div class='card'>");
 
             // Storing the result item's rating
-            var rating = results[i].rating;
+            var rating = results[i].rating.toUpperCase();
 
             // Storing the result item's rating
             var title = results[i].title;
 
             // Creating a paragraph tag with the result item's rating
-            var p = $("<p>").text("Rating: " + rating);
+            var p = $("<p class='rating'>").text("Rating: " + rating);
 
             // Creating a paragraph tag with the result item's rating
-            var h = $("<h3>").text(title);
+
+            var shortText = jQuery.trim(title).substring(0, 15).split(" ").slice(0, -1).join(" ") + "...";
+
+            var h = $("<h3 class='title'>").text(shortText);
 
             // Creating an image tag
             var gifImage = $("<img>");
 
             // Creating an download button
-            var downLoad = $("<a href=" + results[i].images.fixed_width.url + " download=''> Download</a>");
+            var downLoad = $("<a href=" + results[i].images.fixed_width.url + " download=''> Download </a>");
 
-            var downLoad = $("<form method='get' action=" + results[i].images.fixed_width.url + "><button type='submit'>Download!</button></form>");
+            var downLoad = $("<form method='get' action=" + results[i].images.fixed_width.url + "><button type='submit' class='cardbutton'>Download!</button></form>");
 
 
             // Giving the image tag an src attribute of a proprty pulled off the
@@ -91,10 +103,6 @@ function renderButtons() {
   // (this is necessary otherwise we will have repeat buttons)
   $("#buttons-view").empty();
   
-    // Initial array of topics
-    topics = ["Cats", "dogs", "mice", "fish"];
-    localStorage.setItem("topics", JSON.stringify(topics));
-
   // Looping through the array of topics
   for (var i = 0; i < topics.length; i++) {
 
@@ -110,6 +118,23 @@ function renderButtons() {
     // Adding the button to the HTML
     $("#buttons-view").append(a);
   }
+
+  if (existing) {
+    for (var i = 0; i < existing.length; i++) {
+
+        // Then dynamicaly generating buttons for each topic in the array
+        // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+        var a = $("<button>");
+        // Adding a class of topic to our button
+        a.addClass("topic");
+        // Adding a data-attribute
+        a.attr("data-name", existing[i]);
+        // Providing the initial button text
+        a.text(existing[i]);
+        // Adding the button to the HTML
+        $("#buttons-view").append(a);
+    }
+    }
 }
 
 // This function handles events where one button is clicked
@@ -119,10 +144,11 @@ $("#add-topic").on("click", function(event) {
   // This line grabs the input from the textbox
   var topic = $("#topic-input").val().trim();
 
-  // Adding the topic from the textbox to our array
-  topics.push(topic);
+    // Add new data to localStorage Array
+    existing.push(topic);
 
-  localStorage.setItem("topics", JSON.stringify(topics));
+    // Save back to localStorage
+    localStorage.setItem('topics', existing.toString());
 
 
   $('#topic-input').val('');
@@ -131,11 +157,13 @@ $("#add-topic").on("click", function(event) {
 
 });
 
-// Function for displaying the topic info
-// We're adding a click event listener to all elements with the class "topic"
-// We're adding the event listener to the document because it will work for dynamically generated elements
-// $(".topics").on("click") will only add listeners to elements that are on the page at that time
+function clearLocal() {
+    localStorage.clear();
+}
+
 $(document).on("click", ".topic", alertTopicName);
+
+$(document).on("click", ".clear-topics", clearLocal);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
