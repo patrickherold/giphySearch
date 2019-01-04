@@ -19,6 +19,7 @@
 
 #gifs-appear-here img {
     z-index: 999;
+    max-height: 230px;
 }
 
 h3.title {
@@ -33,7 +34,8 @@ button {
     margin-right: 5px;
 }
 
-button.cardbutton {
+a.downloadlink {
+    color: white;
     margin-right: 5px;
     position: absolute;
     bottom: 6px;
