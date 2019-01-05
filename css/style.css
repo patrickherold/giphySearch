@@ -32,6 +32,7 @@ p.rating {
 
 button {
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 a.downloadlink {
@@ -40,4 +41,19 @@ a.downloadlink {
     position: absolute;
     bottom: 6px;
     right: 0px;
+}
+
+#add-topic, #clear-gif, #clear-all {
+    letter-spacing: .5px;
+    color: white;
+}
+
+#topic-form\20 pull-right > div:nth-child(2) > i:nth-child(1),
+#topic-form\20 pull-right > div:nth-child(2) > i:nth-child(2),
+#topic-form\20 pull-right > div:nth-child(2) > i:nth-child(3) {
+    margin-bottom: 5px;
+}
+
+span.card-title {
+    color: white;
 }

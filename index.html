@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GiphySearch</title>
     <!-- Bootstrap CSS CDN  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Main Bootstrap Search -->
     <div class="container">
-        <h1>GiphY Search</h1>
+        <div class="row">
+            <div class="col s12">
+                <h1>GiphY Search</h1>
 
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-view"></div>
-        <hr>
-        <form id="topic-form pull-right">
-            <label for="topic-input">Get some gifs:</label>
-            <input type="text" id="topic-input">
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view"></div>
+                <hr>
+            </div>
+        </div>
 
-            <!-- Button triggers new topic to be added -->
-            <input id="add-topic" type="submit" value="ENTER">
-            <input id="clear-gif" type="submit" value="CLEAR GIFs">
-            <input id="clear-all" type="submit" value="RESET">
-        </form>
+        
+        <div class="row">
+            <form id="topic-form pull-right">
+                <div class="col s6">
+
+                    <label for="topic-input">Get some gifs:</label>
+                    <input placeholder="Enter a Topic" id="topic-input" type="text" class="validate">
+                </div>
+                <div class="col s6">
+                    <!-- Button triggers new topic to be added -->
+                    <input id="add-topic" type="submit" value="ENTER" class="waves-effect waves-light btn">
+                    <input id="clear-gif" type="submit" value="CLEAR GIFs" class="waves-effect waves-light btn">
+                    <input id="clear-all" type="submit" value="RESET TOPICs" class="waves-effect waves-light btn">
+
+                </div>
+            </form>
+        </div>
         <div class="row">
             <div id="gifs-appear-here"></div>
         </div>
-    </div>    
+    </div>
 
 </body>
-  <!-- jQuery JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Code to the JavaScript File -->
-  <script src="js/app.js"></script>
+<!-- jQuery JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Code to the JavaScript File -->
+<script src="js/app.js"></script>
 
 </html>

@@ -41,7 +41,7 @@ function alertTopicName() {
         for (var i = 0; i < results.length; i++) {
 
             // Creating a div for the gif
-            var gifDiv = $("<div class='card'>");
+            var gifDiv = $("<div class='card blue-grey darken-1'>");
 
             // Storing the result item's rating
             var rating = results[i].rating.toUpperCase();
@@ -56,10 +56,10 @@ function alertTopicName() {
             var shortText = jQuery.trim(title).substring(0, 15).split(" ").slice(0, -1).join(" ") + "...";
 
             // Grab the title and make sure if fits in card.
-            var h = $("<h3 class='title'>").text(shortText);
+            var h = $("<span class='card-title'>").text(shortText);
 
             // Creating an image tag
-            var gifImage = $("<img>");
+            var gifImage = $("<img class='responsive-img circle'>");
 
             // Creating an download button
             var downLoad = $("<a href=" + results[i].images.fixed_width.url + " download='' target='_blank' class='downloadlink'> Download </a>");
@@ -116,7 +116,7 @@ function renderButtons() {
     // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
     var a = $("<button>");
     // Adding a class of topic to our button
-    a.addClass("topic");
+    a.addClass("topic waves-effect waves-light btn");
     // Adding a data-attribute
     a.attr("data-name", topics[i]);
 
@@ -137,7 +137,7 @@ function renderButtons() {
         // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
         var a = $("<button>");
         // Adding a class of topic to our button
-        a.addClass("topic");
+        a.addClass("topic waves-effect waves-light btn");
         // Adding a data-attribute
         a.attr("data-name", existing[i]);
         
@@ -193,3 +193,9 @@ $(document).on("click", "#clear-gifs", function() {
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
+
+
+  $(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+        
