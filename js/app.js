@@ -1,4 +1,4 @@
-var topics = ["Cats", "dogs", "mice", "fish"];
+var topics = ["Lawn Mower", "Ice Machine", "Dishwasher", "Electric Light"];
 
 // Get the existing data
 if (localStorage.getItem("topics") !== null) {
@@ -129,6 +129,7 @@ function renderButtons() {
     $("#buttons-view").append(a);
   }
 
+  // add buttons created by user
   if (existing) {
     for (var i = 0; i < existing.length; i++) {
 
