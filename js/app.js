@@ -1,4 +1,4 @@
-var topics = ["Lawn Mower", "Ice Machine", "Dishwasher", "Electric Light"];
+var topics = ["Smile", "Laugh", "Frown", "Cheers"];
 
 // Get the existing data
 if (localStorage.getItem("topics") !== null) {
